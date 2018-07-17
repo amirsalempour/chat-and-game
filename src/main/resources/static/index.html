@@ -1,0 +1,137 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Chat and Game Application</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .modal-header, h4, .close {
+            background-color: #5cb85c;
+            color:white !important;
+            text-align: center;
+            font-size: 30px;
+        }
+        .modal-footer {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+<noscript>
+    <h2>Sorry! Your browser doesn't support Javascript</h2>
+</noscript>
+
+<div id="username-page">
+    <div class="username-page-container">
+        <h1 class="title">Type your user name</h1>
+        <form id="usernameForm" name="usernameForm">
+            <div class="form-group">
+                <input type="text" id="name" placeholder="user name" autocomplete="off" class="form-control" />
+            </div>
+            <div class="form-group">
+                <button type="submit"  class="accent username-submit">Start Chatting</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+<div id="chat-page" class="hidden">
+    <div class="chat-container">
+        <div class="chat-header">
+            <h3 class="header">chat and game</h3>
+
+
+
+
+            <div class="container">
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-default btn-lg" id="myBtn">Play Game</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header" style="padding:35px 50px;">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4><span class="glyphicon glyphicon-play"></span> name&last name game!</h4>
+                            </div>
+                            <div class="modal-body" style="padding:40px 50px;">
+                                <!--<form role="form">-->
+                                <form  id="gameModal" name="gameModal" >
+                                    <div class="form-group">
+                                        <label for="firstName"> first name</label>
+                                        <input type="text" class="form-control" id="firstName" placeholder="Enter first name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">last name</label>
+                                        <input type="text" class="form-control" id="lastName" placeholder="Enter last name" required >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="color">color</label>
+                                        <input type="text" pattern="[a-zA-z]" class="form-control" id="color" placeholder="Enter color" required >
+                                    </div>
+                                   <!--<button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> commit game</button>-->
+                                    <!--<a href="#" onclick="$('#myModal').modal({'backdrop': 'static'});" class="btn btn-primary">commit1 game</a>-->
+                                    <!--<button  type="submit" onClick="alertss()" class="btn btn-success"/>-->
+                                    <a href="#" class="btn btn-primary" onclick="commitGame()" >Save changes</a>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+        <div class="connecting">
+            Connecting...
+        </div>
+        <ul id="messageArea">
+        </ul>
+        <form id="messageForm" name="messageForm">
+            <div class="form-group">
+                <div class="input-group clearfix">
+                    <input type="text" id="message" placeholder="write message..." autocomplete="off" class="form-control"/>
+                    <button type="submit" class="primary">Send</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#myBtn").click(function(){
+            $("#myModal").modal();
+        });
+    });
+</script>
+</body>
+</html>
