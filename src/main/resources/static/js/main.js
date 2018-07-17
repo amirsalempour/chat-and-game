@@ -24,10 +24,6 @@ var colors = [
     '#2196F3', '#32c787', '#00BCD4', '#ff5652',
     '#ffc107', '#ff85af', '#FF9800', '#39bbb0'
 ];
-function alertss(){
-    alert(1);
-    
-}
 function connect(event) {
     username = document.querySelector('#name').value.trim();
     // identifier = document.querySelector('#').value.trim();
@@ -45,10 +41,8 @@ function connect(event) {
 
 
 function onConnected() {
-    // Subscribe to the Public Topic
     stompClient.subscribe('/topic/public', onMessageReceived);
 
-    // Tell your username to the server
     stompClient.send("/app/chat.addUser",
         {},
         JSON.stringify({sender: username, type: 'JOIN', identificationNumber:identifier})
