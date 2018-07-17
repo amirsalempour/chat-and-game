@@ -2,7 +2,6 @@ package com.amir.controller;
 
 import com.amir.dao.UserRepository;
 import com.amir.model.ChatMessage;
-import com.amir.model.GameObject;
 import com.amir.model.UserDomain;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,7 +35,6 @@ public class ChatController {
     @SendTo("/topic/public")
     public ChatMessage addUser(@Payload ChatMessage chatMessage,
                                SimpMessageHeaderAccessor headerAccessor) {
-        // Add username in web socket session
         headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
 
         UserDomain user = new UserDomain();
